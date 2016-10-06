@@ -27,6 +27,15 @@ jinrepl> {% set var=1 %} {{var}}
 jinrepl> 
 ```
 
+```python
+jinrepl> {{ dada.keys() }} -- {'dada':{'names':['jerry','garcia'] , 'hobbies':['linux','linux']}}
+> ['names', 'hobbies']
+jinrepl> {% set a={'names':['jerry','garcia'] , 'hobbies':['linux','linux']} %} {{a.keys()}}
+>  ['names', 'hobbies']
+jinrepl>
+```
+
+
 
 
 
