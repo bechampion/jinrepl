@@ -4,7 +4,6 @@ import readline
 import ast
 import sys
 
-
 def parser(i):
     if "--" in i:
         code=i.split("--")[0]
@@ -12,7 +11,7 @@ def parser(i):
     else:
         code=i
     try:
-        if "vars" not in locals():
+        if 'vars' not in locals():
             vars = {}
         print colored('> ','green') +  Template(code).render(vars)
     except Exception as e:
@@ -22,13 +21,15 @@ def main():
     try:
         while True:
             i = raw_input('jinrepl' + colored('> ','red'))
-            if not i: break
+            if not i: pass
+            if len(i) > 0 : parser(i)
             if i == "exit": sys.exit(0) 
-            parser(i)
+            
     except KeyboardInterrupt:
         print "\n"
         sys.exit(0)
-    except Excepption as e:
+    except Exception as e:
         print e
+
 if __name__ == "__main__":
     main()
