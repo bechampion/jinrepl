@@ -35,7 +35,7 @@ jinrepl> {% set a={'names':['jerry','garcia'] , 'hobbies':['linux','linux']} %} 
 jinrepl>
 ```
 
-Autocomplete (For SOME filters only so far) , dir(jinja2.filters)
+Autocomplete (For SOME filters only so far) , dir(jinja2.filters) Tab Tab
 ```python
 jinrepl> {{ 1 |
 {{ 1 | FILTERS              {{ 1 | center               {{ 1 | indent               {{ 1 | random               {{ 1 | text_type
