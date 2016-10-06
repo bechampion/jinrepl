@@ -1,5 +1,9 @@
 from jinja2 import Template
+from termcolor import colored
+import readline
 import ast
+import sys
+
 
 def parser(i):
     if "--" in i:
@@ -10,15 +14,21 @@ def parser(i):
     try:
         if "vars" not in locals():
             vars = {}
-        print Template(code).render(vars)
+        print colored('> ','green') +  Template(code).render(vars)
     except Exception as e:
-        print e
+        print colored('e: ','red') , e
 
 def main():
-    while True:
-        i = raw_input('jinrepl> ')
-        if not i:
-            break
-        parser(i)
+    try:
+        while True:
+            i = raw_input('jinrepl' + colored('> ','red'))
+            if not i: break
+            if i == "exit": sys.exit(0) 
+            parser(i)
+    except KeyboardInterrupt:
+        print "\n"
+        sys.exit(0)
+    except Excepption as e:
+        print e
 if __name__ == "__main__":
     main()

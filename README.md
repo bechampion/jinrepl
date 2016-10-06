@@ -8,9 +8,16 @@ jinrepl> {% for i in [1,2,3,4] %} {{ i }} {% endfor %}
 jinrepl>
 ```
 
+or filter:
+```python
+jinrepl> {{ [1,2,3,4]  | first }}
+> 1
+jinrepl>
+```
+
 Todo:
 * Color syntax
-* redo up arrows
-* env aware
+* redo up arrows DONE
+* env aware 
 * loads more
 
