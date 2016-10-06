@@ -9,7 +9,7 @@ import sys
 def complete(text,state):
         texttemp = text
         if '|' in text:
-            results=[x for x in map(lambda x: x.replace("do_","") if x.startswith("do_") else x ,dir(jinja2.filters)) if x.startswith(text.split('|')[-1].replace(" ",""))]+[None]
+            results=[x for x in map(lambda x: x.replace("do_","") if x.startswith("do_") else x ,jinja2.filters.FILTERS.keys()) if x.startswith(text.split('|')[-1].replace(" ",""))]+[None]
             return "|".join(text.split('|')[:-1]) + '| ' +  results[state]
         else:
             return [None]
