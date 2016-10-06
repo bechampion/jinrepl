@@ -3,8 +3,8 @@ import ast
 
 def parser(i):
     if "--" in i:
-        code=i.split(",")[0]
-        vars=ast.literal_eval(i.split(",")[1].replace(" ",""))
+        code=i.split("--")[0]
+        vars=ast.literal_eval(i.split("--")[1].replace(" ",""))
     else:
         code=i
     try:
