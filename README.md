@@ -8,6 +8,7 @@ This is an attempt to make a repl of jinja Template.render()
 * autocompletes filters
 * autocompletes conditionals and iterators 
 * autocomplete end for conditionals and iterators.
+* opens the one true editor and renders the contents 
 
 #What's left to be done
 
@@ -87,6 +88,9 @@ jinrepl> {% if 1==1 %} works! {% endif %}
 >  works!
 jinrepl>
 ```
+
+## Vim integration"" :
+
 
 
 

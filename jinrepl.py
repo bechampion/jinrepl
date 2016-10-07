@@ -1,4 +1,5 @@
 import jinja2
+import os
 from termcolor import colored
 import rlcompleter, readline
 import ast
@@ -35,19 +36,36 @@ def parser(i):
     except Exception as e:
         print colored('e: ','red') , e
 
+def vim_parser():
+    f = open(vim_tmp,'w')
+    f.truncate()
+    f.close()
+    os.system("vim %s" % vim_tmp)
+    print jinja2.Environment(loader=jinja2.FileSystemLoader("/"+vim_tmp.split("/")[1])).get_template("/"+vim_tmp.split("/")[2]).render()
+    return 0
+
 def init_readline():
     #some __init__()
     readline.set_completer_delims('\t\t')
     readline.parse_and_bind('tab: complete')
     readline.set_completer(complete)
 
+def init_constants():
+    global vim_tmp
+    global env
+    vim_tmp = "/tmp/jinrepl"
+
+    return 0
+
 def main():
     try:
         while True:
             i = raw_input('jinrepl' + colored('> ','red'))
-            if not i: pass
-            if len(i) > 0 : parser(i)
-            if i == "exit": sys.exit(0) 
+            if i.startswith("vim"): vim_parser()
+            elif not i: pass
+            elif len(i) > 0 : parser(i)
+            elif i == "exit": sys.exit(0) 
+            else: pass 
             
     except KeyboardInterrupt:
         print "\n"
@@ -56,5 +74,6 @@ def main():
         print e
 
 if __name__ == "__main__":
+    init_constants()
     init_readline()
     main()
