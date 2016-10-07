@@ -16,13 +16,14 @@ This is an attempt to make a repl of jinja Template.render()
 * environment aware ,  as in variables declared in different lines should be still ok to refer to
 * everything else
 
-sort of works like this:
-
+## Loops
 ```python
 jinrepl> {% for i in [1,2,3,4] %} {{ i }} {% endfor %}
  1  2  3  4
 jinrepl>
 ```
+
+## Filters
 
 or filter:
 ```python
@@ -42,6 +43,8 @@ jinrepl> {% set var=1 %} {{var}}
 >  1
 jinrepl> 
 ```
+## Render with variables
+I'm using  "--" as a separator , this has to change because it's ugly
 
 ```python
 jinrepl> {{ dada.keys() }} -- {'dada':{'names':['jerry','garcia'] , 'hobbies':['linux','linux']}}
@@ -51,7 +54,8 @@ jinrepl> {% set a={'names':['jerry','garcia'] , 'hobbies':['linux','linux']} %} 
 jinrepl>
 ```
 
-Autocomplete (For filters only )
+##Autocomplete (For filters only )
+
 ```python
 jinrepl> {{ 1 |
 {{ 1 | FILTERS              {{ 1 | center               {{ 1 | indent               {{ 1 | random               {{ 1 | text_type
@@ -72,7 +76,7 @@ jinrepl> {{ 1 |
 jinrepl> {{ 1 |
 ```
 
-Autocomplete now for conditionals and iterators
+## Autocomplete now for conditionals and iterators
 
 ```python
 jinrepl> {% i
