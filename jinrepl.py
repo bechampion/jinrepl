@@ -21,7 +21,7 @@ def complete_empty():
 def exception_handler(e,empty=False):
     stre=str(e)
     if empty == True:
-        stre = "Jinja2 Empty Response"
+        stre = "Jinja2 empty response / variable undefinded??"
     msg="j2 Exception"
     magicnum = int(len(stre) - len(msg))/2
     print colored('-'*magicnum+msg+'-'*magicnum,'red')
