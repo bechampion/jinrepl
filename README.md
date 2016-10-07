@@ -30,7 +30,7 @@ jinrepl> {{ [1,2,3,4]  | first }}
 > 1
 jinrepl>
 ```
-## Loops
+## Loops with variables
 ```python
 jinrepl> {% for i in items %} My Items {{i}}  {% endfor %} -- {'items':[1,2,3,4]}
 >  My Items 1   My Items 2   My Items 3   My Items 4
