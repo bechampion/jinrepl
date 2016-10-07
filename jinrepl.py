@@ -18,6 +18,25 @@ def complete_filters(text,state):
 def complete_empty():
     return [None]
 
+def exception_handler(e):
+    stre=str(e)
+    msg="j2 Exception"
+    magicnum = int(len(str(e)) - len(msg))/2
+    print colored('-'*magicnum+msg+'-'*magicnum,'red')
+    print stre
+    print colored('-'*len(stre),'red')
+    print
+    return 0
+
+def response_handler(response):
+    msg = "j2"
+    magicnum = int(len(str(response)) - len(msg))/2
+    print colored('-'*magicnum+msg+'-'*magicnum,'green')
+    print str(response)
+    print colored('-'*len(response),'green')
+    print
+    return 0
+
 def complete(text,state):
         if '|' in text: return complete_filters(text,state)
         if text.startswith(jinja2.defaults.BLOCK_START_STRING): return complete_itercond(text,state)
@@ -33,9 +52,9 @@ def parser(i):
     try:
         if 'vars' not in locals():
             vars = {}
-        print colored('> ','green') +  jinja2.Template(code).render(vars)
+        response_handler(jinja2.Template(code).render(vars))
     except Exception as e:
-        print colored('e>','red') , e
+        exception_handler(e)
 
 def tmp_truncate():
     f = open(vim_tmp,'w')
@@ -43,11 +62,11 @@ def tmp_truncate():
     f.close()
 
 def vim_parser():
-    os.system("vim %s" % vim_tmp)
+    os.system("vim -c 'startinsert' %s" % vim_tmp)
     try:
-        print colored('> ','green') + jinja2.Environment(loader=jinja2.FileSystemLoader("/"+vim_tmp.split("/")[1])).get_template("/"+vim_tmp.split("/")[2]).render()
+        response_handler(jinja2.Environment(loader=jinja2.FileSystemLoader("/"+vim_tmp.split("/")[1])).get_template("/"+vim_tmp.split("/")[2]).render())
     except Exception as e:
-        print colored('e>','red') , e
+        exception_handler(e)
     return 0
 
 def init_readline():
@@ -69,7 +88,7 @@ def main():
     try:
         while True:
             i = raw_input(prompt())
-            if i.startswith("vim"): vim_parser()
+            if i == "vim": vim_parser()
             elif not i: pass
             elif len(i) > 0 : parser(i)
             elif i == "exit": sys.exit(0) 
