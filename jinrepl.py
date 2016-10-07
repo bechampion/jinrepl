@@ -4,6 +4,7 @@ from termcolor import colored
 import rlcompleter, readline
 import ast
 import sys
+import datetime
 
 def complete_itercond(text,state):
     cond_ends = ["endif","endfor","endblock"]
@@ -34,7 +35,7 @@ def parser(i):
             vars = {}
         print colored('> ','green') +  jinja2.Template(code).render(vars)
     except Exception as e:
-        print colored('e: ','red') , e
+        print colored('e>','red') , e
 
 def tmp_truncate():
     f = open(vim_tmp,'w')
@@ -43,11 +44,13 @@ def tmp_truncate():
 
 def vim_parser():
     os.system("vim %s" % vim_tmp)
-    print jinja2.Environment(loader=jinja2.FileSystemLoader("/"+vim_tmp.split("/")[1])).get_template("/"+vim_tmp.split("/")[2]).render()
+    try:
+        print colored('> ','green') + jinja2.Environment(loader=jinja2.FileSystemLoader("/"+vim_tmp.split("/")[1])).get_template("/"+vim_tmp.split("/")[2]).render()
+    except Exception as e:
+        print colored('e>','red') , e
     return 0
 
 def init_readline():
-    #some __init__()
     readline.set_completer_delims('\t\t')
     readline.parse_and_bind('tab: complete')
     readline.set_completer(complete)
@@ -56,13 +59,16 @@ def init_constants():
     global vim_tmp
     global env
     vim_tmp = "/tmp/jinrepl"
-
     return 0
+
+def prompt():
+    return "["+colored(datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),'blue')+"] jinrepl"+colored("> ",'green')
+
 
 def main():
     try:
         while True:
-            i = raw_input('jinrepl' + colored('> ','red'))
+            i = raw_input(prompt())
             if i.startswith("vim"): vim_parser()
             elif not i: pass
             elif len(i) > 0 : parser(i)
