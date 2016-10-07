@@ -91,6 +91,25 @@ jinrepl>
 
 ## Vim integration"" :
 
+### Call vim!:
+
+```python
+jinrepl>
+jinrepl> vim
+```
+### Add your j2 content:
+
+![alt tag](https://raw.githubusercontent.com/bechampion/jinrepl/master/demoimg/vimedit.png)
+
+### :wq it!
+
+![alt tag](https://raw.githubusercontent.com/bechampion/jinrepl/master/demoimg/vimresult.png)
+
+
+
+
+
+
 
 
 
