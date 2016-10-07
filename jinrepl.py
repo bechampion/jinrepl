@@ -51,8 +51,12 @@ def complete(text,state):
 def parser(i):
     ## this has to change, to shitty
     if "--" in i:
-        code=i.split("--")[0]
-        vars=ast.literal_eval(i.split("--")[1].replace(" ",""))
+        try:
+            code=i.split("--")[0]
+            vars=ast.literal_eval(i.split("--")[1].replace(" ",""))
+        except Exception as e:
+            exception_handler(e)
+            return 0 
     else:
         code=i
     try:
