@@ -36,10 +36,12 @@ def parser(i):
     except Exception as e:
         print colored('e: ','red') , e
 
-def vim_parser():
+def tmp_truncate():
     f = open(vim_tmp,'w')
     f.truncate()
     f.close()
+
+def vim_parser():
     os.system("vim %s" % vim_tmp)
     print jinja2.Environment(loader=jinja2.FileSystemLoader("/"+vim_tmp.split("/")[1])).get_template("/"+vim_tmp.split("/")[2]).render()
     return 0
@@ -75,5 +77,6 @@ def main():
 
 if __name__ == "__main__":
     init_constants()
+    tmp_truncate()
     init_readline()
     main()
