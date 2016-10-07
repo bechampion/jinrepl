@@ -1,5 +1,21 @@
 This is an attempt to make a repl of jinja Template.render()
 
+#What it does so far:
+
+* evals all kinds of jinja templates
+* shows exceptions
+* all moving shortcuts that work on bash work on jinrepl too (Ctrl , arrows etc)
+* autocompletes filters
+* autocompletes conditionals and iterators 
+* autocomplete end for conditionals and iterators.
+
+#What's left to be done
+
+* the parsing is very rudimentary
+* color syntax
+* environment aware ,  as in variables declared in different lines should be still ok to refer to
+* everything else
+
 sort of works like this:
 
 ```python
@@ -74,9 +90,4 @@ jinrepl>
 
 
 
-Todo:
-* Color syntax
-* redo up arrows DONE
-* env aware 
-* loads more
 
