@@ -18,17 +18,23 @@ def complete_filters(text,state):
 def complete_empty():
     return [None]
 
-def exception_handler(e):
+def exception_handler(e,empty=False):
     stre=str(e)
+    if empty == True:
+        stre = "Jinja2 Empty Response"
     msg="j2 Exception"
-    magicnum = int(len(str(e)) - len(msg))/2
+    magicnum = int(len(stre) - len(msg))/2
     print colored('-'*magicnum+msg+'-'*magicnum,'red')
     print stre
     print colored('-'*len(stre),'red')
     print
     return 0
 
+
 def response_handler(response):
+    if len(response) == 0:
+        exception_handler("",True)
+        return 0 
     msg = "j2"
     magicnum = int(len(str(response)) - len(msg))/2
     print colored('-'*magicnum+msg+'-'*magicnum,'green')
