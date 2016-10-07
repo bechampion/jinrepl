@@ -58,23 +58,18 @@ jinrepl>
 ##Autocomplete (For filters only )
 
 ```python
-jinrepl> {{ 1 |
-{{ 1 | FILTERS              {{ 1 | center               {{ 1 | indent               {{ 1 | random               {{ 1 | text_type
-{{ 1 | FilterArgumentError  {{ 1 | choice               {{ 1 | int                  {{ 1 | re                   {{ 1 | title
-{{ 1 | Markup               {{ 1 | contextfilter        {{ 1 | itemgetter           {{ 1 | reject               {{ 1 | trim
-{{ 1 | Undefined            {{ 1 | default              {{ 1 | iteritems            {{ 1 | rejectattr           {{ 1 | truncate
-{{ 1 | _GroupTuple          {{ 1 | dictsort             {{ 1 | join                 {{ 1 | replace              {{ 1 | unicode_urlencode
-{{ 1 | __builtins__         {{ 1 | environmentfilter    {{ 1 | last                 {{ 1 | reverse              {{ 1 | upper
-{{ 1 | __doc__              {{ 1 | escape               {{ 1 | list                 {{ 1 | round                {{ 1 | urlencode
-{{ 1 | __file__             {{ 1 | evalcontextfilter    {{ 1 | lower                {{ 1 | select               {{ 1 | urlize
-{{ 1 | __name__             {{ 1 | filesizeformat       {{ 1 | make_attrgetter      {{ 1 | selectattr           {{ 1 | wordcount
-{{ 1 | __package__          {{ 1 | first                {{ 1 | map                  {{ 1 | slice                {{ 1 | wordwrap
-{{ 1 | _select_or_reject    {{ 1 | float                {{ 1 | mark_safe            {{ 1 | soft_unicode         {{ 1 | xmlattr
-{{ 1 | _word_re             {{ 1 | forceescape          {{ 1 | mark_unsafe          {{ 1 | sort
-{{ 1 | attr                 {{ 1 | format               {{ 1 | math                 {{ 1 | string_types
-{{ 1 | batch                {{ 1 | groupby              {{ 1 | pformat              {{ 1 | striptags
-{{ 1 | capitalize           {{ 1 | imap                 {{ 1 | pprint               {{ 1 | sum
-jinrepl> {{ 1 |
+jinrepl> {{1 |
+{{1 | abs             {{1 | escape          {{1 | last            {{1 | reverse         {{1 | title
+{{1 | attr            {{1 | filesizeformat  {{1 | length          {{1 | round           {{1 | trim
+{{1 | batch           {{1 | first           {{1 | list            {{1 | safe            {{1 | truncate
+{{1 | capitalize      {{1 | float           {{1 | lower           {{1 | select          {{1 | upper
+{{1 | center          {{1 | forceescape     {{1 | map             {{1 | selectattr      {{1 | urlencode
+{{1 | count           {{1 | format          {{1 | pprint          {{1 | slice           {{1 | urlize
+{{1 | d               {{1 | groupby         {{1 | random          {{1 | sort            {{1 | wordcount
+{{1 | default         {{1 | indent          {{1 | reject          {{1 | string          {{1 | wordwrap
+{{1 | dictsort        {{1 | int             {{1 | rejectattr      {{1 | striptags       {{1 | xmlattr
+{{1 | e               {{1 | join            {{1 | replace         {{1 | sum
+jinrepl> {{1 |
 ```
 
 ## Autocomplete now for conditionals and iterators
