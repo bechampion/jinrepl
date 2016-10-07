@@ -56,6 +56,19 @@ jinrepl> {{ 1 |
 jinrepl> {{ 1 |
 ```
 
+Autocomplete now for conditionals and iterators
+
+```python
+jinrepl> {% i
+{% if       {% import   {% include
+jinrepl> {% if 1==1 %} works! {% end
+{% if 1==1 %} works! {% endblock  {% if 1==1 %} works! {% endfor    {% if 1==1 %} works! {% endif
+jinrepl> {% if 1==1 %} works! {% endif %}
+>  works!
+jinrepl>
+```
+
+
 
 
 
