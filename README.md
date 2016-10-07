@@ -1,21 +1,21 @@
-This is an attempt to make a repl of jinja Template.render()
+An attempt to make a repl parser for Jinja
 
 #What it does so far:
 
-* evals all kinds of jinja templates
-* shows exceptions
-* all moving shortcuts that work on bash work on jinrepl too (Ctrl , arrows etc)
-* autocompletes filters
-* autocompletes conditionals and iterators 
-* autocomplete end for conditionals and iterators.
-* opens the one true editor and renders the contents 
+* Evals all kinds of jinja templates
+* Shows exceptions
+* All moving shortcuts that work on bash work on jinrepl too (Ctrl , arrows etc)
+* Autocompletes filters
+* Autocompletes conditionals and iterators 
+* Autocomplete end for conditionals and iterators.
+* Opens the one true editor and renders the contents 
 
 #What's left to be done
 
-* the parsing is very rudimentary
-* color syntax
-* environment aware ,  as in variables declared in different lines should be still ok to refer to
-* everything else
+* The parsing is very rudimentary
+* Color syntax
+* Environment aware ,  as in variables declared in different lines should be still ok to refer to
+* Everything else
 
 ## Loops
 ```python
@@ -25,20 +25,19 @@ jinrepl>
 ```
 
 ## Filters
-
-or filter:
 ```python
 jinrepl> {{ [1,2,3,4]  | first }}
 > 1
 jinrepl>
 ```
-
+## Loops
 ```python
 jinrepl> {% for i in items %} My Items {{i}}  {% endfor %} -- {'items':[1,2,3,4]}
 >  My Items 1   My Items 2   My Items 3   My Items 4
 jinrepl>
 ```
 
+## Statements
 ```python
 jinrepl> {% set var=1 %} {{var}}
 >  1
@@ -56,7 +55,6 @@ jinrepl>
 ```
 
 ##Autocomplete (For filters only )
-
 ```python
 jinrepl> {{1 |
 {{1 | abs             {{1 | escape          {{1 | last            {{1 | reverse         {{1 | title
@@ -73,7 +71,6 @@ jinrepl> {{1 |
 ```
 
 ## Autocomplete now for conditionals and iterators
-
 ```python
 jinrepl> {% i
 {% if       {% import   {% include
@@ -85,19 +82,16 @@ jinrepl>
 ```
 
 ## Vim integration"" :
-
 ### Call vim!:
-
 ```python
 jinrepl>
 jinrepl> vim
 ```
-### Add your j2 content:
 
+### Add your j2 content:
 ![alt tag](https://raw.githubusercontent.com/bechampion/jinrepl/master/demoimg/vimedit.png)
 
 ### :wq it!
-
 ![alt tag](https://raw.githubusercontent.com/bechampion/jinrepl/master/demoimg/vimresult.png)
 
 
