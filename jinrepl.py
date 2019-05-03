@@ -1,3 +1,4 @@
+from __future__ import print_function
 import jinja2
 import os
 from termcolor import colored
@@ -5,6 +6,7 @@ import rlcompleter, readline
 import ast
 import sys
 import datetime
+
 
 def complete_itercond(text,state):
     cond_ends = ["endif","endfor","endblock"]
@@ -23,11 +25,11 @@ def exception_handler(e,empty=False):
     if empty == True:
         stre = "Jinja2 empty response / variable undefinded??"
     msg="j2 Exception"
-    magicnum = int(len(stre) - len(msg))/2
-    print colored('-'*magicnum+msg+'-'*magicnum,'red')
-    print stre
-    print colored('-'*len(stre),'red')
-    print
+    magicnum = int((len(stre) - len(msg))/2)
+    print(colored('-'*magicnum+msg+'-'*magicnum,'red'))
+    print(stre)
+    print(colored('-'*len(stre),'red'))
+    print()
     return 0
 
 
@@ -36,11 +38,11 @@ def response_handler(response):
         exception_handler("",True)
         return 0 
     msg = "j2"
-    magicnum = int(len(str(response)) - len(msg))/2
-    print colored('-'*magicnum+msg+'-'*magicnum,'green')
-    print str(response)
-    print colored('-'*len(response),'green')
-    print
+    magicnum = int((len(str(response)) - len(msg))/2)
+    print(colored('-'*magicnum+msg+'-'*magicnum,'green'))
+    print(str(response))
+    print(colored('-'*len(response),'green'))
+    print()
     return 0
 
 def complete(text,state):
@@ -97,7 +99,7 @@ def prompt():
 def main():
     try:
         while True:
-            i = raw_input(prompt())
+            i = input(prompt())
             if i == "vim": vim_parser()
             elif not i: pass
             elif len(i) > 0 : parser(i)
@@ -105,10 +107,10 @@ def main():
             else: pass 
             
     except KeyboardInterrupt:
-        print "\n"
+        print("\n")
         sys.exit(0)
     except Exception as e:
-        print e
+        print(e)
 
 if __name__ == "__main__":
     init_constants()
