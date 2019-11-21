@@ -17,6 +17,11 @@ An attempt to make a repl parser for Jinja
 * Environment aware ,  as in variables declared in different lines should be still ok to refer to
 * Everything else
 
+## Setup
+There's no setup file, you can just run it e.g. `python jinrepl.py`
+This fork adds support for python3, still works with python2, although that will be unsupported from 2020 so just move on already!
+
+
 ## Loops
 ```python
 jinrepl> {% for i in [1,2,3,4] %} {{ i }} {% endfor %}
