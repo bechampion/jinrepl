@@ -14,22 +14,3 @@ jobs:
       - name: Run a one-line script
         run: echo "Hello, this is the main workflow running!"
 
----
-name: Dependent Workflow
-
-on:
-  workflow_run:
-    workflows: ["Main Workflow"]
-    types:
-      - completed
-
-jobs:
-  notify:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Run a one-line script
-        run: echo "Hello, this is the dependent workflow running after the main workflow!"
-
-
